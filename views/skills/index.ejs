@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>All Skills!</h1>
+	<a href="/skills/new">Add Skill</a>
+    
+<!-- 
+	We have todos variable because of the key on the object
+	on the render function in the controllers/todos/index function -->
+	<ul>
+		<% skills.forEach(s => { %>
+		 <li>
+			<form action="/skills/<%= s.id %>?_method=DELETE" class="delete-form" method="POST"><%= s.skill %></a>
+				<button type="submit">Delete</button>
+			</form>
+			<a href="/skills/<%= s.id %>"><%= s.skill %></a>
+
+			-
+
+			<%= s.done ? 'done' : 'not done' %>
+		 </li>
+		<% }) %>
+	</ul>
+</body>
+</html>
